@@ -11,19 +11,23 @@ int main() {
         cin>>nums[i];
     }
 
-    int l = 0, r = 0;
-    long long currSum = 0, result = 0;
+    int l = 0, r = 0, result = INT_MAX;
+    long long currSum = 0;
 
     while(r < n){
         currSum += nums[r];
         while(currSum >= k){
-            result += (n - r);
+            result = min(result, r - l + 1);
             currSum -= nums[l++];
         }
         r++;
     }
 
-    cout<<result;
+    if(result == INT_MAX)
+        cout << "-1";
+    else
+        cout << result;
+
 
     return 0;
 }
