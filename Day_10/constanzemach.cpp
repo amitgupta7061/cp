@@ -8,6 +8,7 @@ long long f(string &s, int ind, vector<long long> &dp){
     if(dp[ind] != -1) return dp[ind] % MOD;
 
     long long cnt = f(s, ind+1, dp);
+    // both element case
     if(ind + 1 < s.size() and s[ind] == s[ind+1] and (s[ind] == 'u' or s[ind] == 'n')){
         cnt += f(s, ind + 2, dp);
     }
